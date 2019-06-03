@@ -1,0 +1,7 @@
+ask-sdk-core
+ask-sdk
+boto3
+botocore
+requests
+ask-sdk-dynamodb-persistence-adapter
+ask-sdk-runtime

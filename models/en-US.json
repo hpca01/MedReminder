@@ -1,0 +1,419 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "pharmacy assistant",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CurrentRx",
+                    "slots": [
+                        {
+                            "name": "prescription",
+                            "type": "medicationName",
+                            "samples": [
+                                "I want information about my {prescription}",
+                                "my {prescription}",
+                                "{prescription}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "prescription",
+                        "when do i take my meds",
+                        "How do I take my medication",
+                        "When do I take my {prescription}",
+                        "How do I take my {prescription}",
+                        "Information on {prescription}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "RegisterUser",
+                    "slots": [
+                        {
+                            "name": "MRN",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "My medical record number is {MRN}",
+                                "{MRN}"
+                            ]
+                        },
+                        {
+                            "name": "SSNLastFourDigits",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "samples": [
+                                "My last four digits of social secuirty number are {SSNLastFourDigits}",
+                                "{SSNLastFourDigits}",
+                                "It is {SSNLastFourDigits}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Register",
+                        "I would like to register"
+                    ]
+                },
+                {
+                    "name": "DosageReminder",
+                    "slots": [
+                        {
+                            "name": "prescription",
+                            "type": "medicationName",
+                            "samples": [
+                                "my {prescription}",
+                                "{prescription}"
+                            ]
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "take my {prescription} at {time}",
+                        "when can i take my {prescription}",
+                        "Set reminders to take my {prescription}",
+                        "I would like to set up reminders for taking my {prescription}",
+                        "Set a dosage reminder"
+                    ]
+                },
+                {
+                    "name": "RefillReminder",
+                    "slots": [
+                        {
+                            "name": "prescription",
+                            "type": "medicationName",
+                            "samples": [
+                                "{prescription}",
+                                "my {prescription}"
+                            ]
+                        },
+                        {
+                            "name": "refillwhen",
+                            "type": "AMAZON.DATE"
+                        }
+                    ],
+                    "samples": [
+                        "refill my {prescription} at {refillwhen}",
+                        "remind me to refill my {prescription}",
+                        "when can i refill my {prescription}",
+                        "I would like to set up reminders for refilling my {prescription}",
+                        "Set a refill reminder"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "medicationName",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "levetiracetam",
+                                "synonyms": [
+                                    "keppra"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "atenolol",
+                                "synonyms": [
+                                    "tenormin"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "haloperidol"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "citalopram"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "clozapine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aripiprazole",
+                                "synonyms": [
+                                    "abilify"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "risperidone"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fluoxetine",
+                                "synonyms": [
+                                    "prozac"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "quetiapine",
+                                "synonyms": [
+                                    "seroquel"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "topiramate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lamotrigine",
+                                "synonyms": [
+                                    "lamictal"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "olanzapine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "metformin",
+                                "synonyms": [
+                                    "glucophage"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "RegisterUser",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1107374155787"
+                    },
+                    "slots": [
+                        {
+                            "name": "MRN",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.921700545364.275240130340"
+                            }
+                        },
+                        {
+                            "name": "SSNLastFourDigits",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.921700545364.933392718820"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CurrentRx",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "prescription",
+                            "type": "medicationName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.512963853229.6791361209"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DosageReminder",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "prescription",
+                            "type": "medicationName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.809247626625.1078121657781"
+                            }
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "RefillReminder",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.869889968734"
+                    },
+                    "slots": [
+                        {
+                            "name": "prescription",
+                            "type": "medicationName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.869889968734.963450472153"
+                            }
+                        },
+                        {
+                            "name": "refillwhen",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.1107374155787",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak>You are registering <say-as interpret-as=\"digits\">{MRN}</say-as> with last four digits of social security number <say-as interpret-as=\"digits\">{SSNLastFourDigits}</say-as> . Is that correct?</speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.921700545364.275240130340",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I need your medical record number on your Kaiser card."
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your medical record number on your Kaiser card?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.921700545364.275240130340",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak>I've got your MRN as <say-as interpret-as=\"digits\">{MRN}</say-as> , is that correct?</speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.921700545364.933392718820",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "please give me your last four digits of your social security number"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Can you please give me the last four digits of your social security number?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What are the last four digits of your social security number?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.512963853229.6791361209",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "what med would you like more information on"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "which medication?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.809247626625.1078121657781",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "which med?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "which medication would you like to set up reminders for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.869889968734.963450472153",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "which medication do you want to refill?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "which medication?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.869889968734",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You want to refill {prescription} is that correct?"
+                    }
+                ]
+            }
+        ]
+    }
+}

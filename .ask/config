@@ -1,0 +1,12 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.2e934c60-30b3-434f-84e7-5c11b561113f",
+      "was_cloned": true,
+      "merge": {}
+    }
+  },
+  "alexaHosted": {
+    "isAlexaHostedSkill": false
+  }
+}
