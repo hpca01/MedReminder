@@ -42,7 +42,7 @@ def launch_request_handler(handler_input) -> Response:
 
     try:
         attr = handler_input.attributes_manager.persistent_attributes
-        speech_text = "Welcome to the KP Pharmacy Assistant, {name}\
+        speech_text = "Welcome to the Pharmacy Assistant, {name}\
                     I can help you get information about your \
                     prescription, as well as set up dosage \
                     and refill reminders. ".format(
@@ -62,7 +62,7 @@ def launch_request_handler(handler_input) -> Response:
         attr["user_new"] = True
         attr["transaction_state"] = "STARTED"
         speech_text = speech_out.speak(
-            "Welcome to KP Pharmacy Assistant. Would you like to register?"
+            "Welcome to Pharmacy Assistant. Would you like to register?"
         )
         new_user = (
             TextHelper().sentence("Say yes to register or no to quit.").to_string()
